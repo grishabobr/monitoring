@@ -1,7 +1,21 @@
 import '../App.css';
+import { useState, useEffect } from 'react';
+
 
 
 export default function Marks() {
+    const [semestValue, setSemestValue] = useState(1);
+
+    useEffect(() => {
+        if (semestValue <= 0){
+            setSemestValue(8);
+        }
+        if (semestValue > 8) {
+            setSemestValue(1);
+        }
+    }, [semestValue]);
+
+
     return (
         <div className='dashboard'>
             <div className='dashboard-title'>
@@ -69,10 +83,13 @@ export default function Marks() {
                                 Семестр:
                             </div>
                             <div className='marks5_filter_selector'>
-                                <div className='marks5_filter_value'>
-                                    1
+                                <div className='marks5_filter_controls' onClick={() => { setSemestValue(semestValue - 1) }}>
+                                    -
                                 </div>
-                                <div className='marks5_filter_controls'>
+                                <div className='marks5_filter_value'>
+                                    {semestValue}
+                                </div>
+                                <div className='marks5_filter_controls' onClick={() => {setSemestValue(semestValue+1)}}>
                                     +
                                 </div>
                             </div>

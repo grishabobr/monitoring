@@ -224,14 +224,18 @@
   display: flex;
   align-items: center;
   border-radius: 10px;
+  justify-content: center;
 }
 
 .marks5_filter_value {
-  width: 41px;
+  width: 30px;
   text-align: center;
-  
 }
 
+.marks5_filter_controls {
+  cursor: pointer;
+  user-select: none;
+}
 
 .marks6 {
   width: calc(667px - 30px);
