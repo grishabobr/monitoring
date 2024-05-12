@@ -101,8 +101,149 @@
 
 
 .dashboard {
-  height: 2000px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 6px;
+  padding-bottom: 30px;
 }
 
 
+.dashboard-title {
+  font-family: "Ubuntu",
+    sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 36px;
+  margin-top: 22px;
+  margin-left: 30px;
+}
 
+.chart-title {
+  font-family: "Ubuntu",
+  sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 36px;
+  padding-top: 16px;
+}
+
+.chart {
+  background-color: white;
+  border-radius: 30px;
+  padding-left: 30px;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.charts-line {
+  display: flex;
+  flex-direction: row;
+}
+
+.main1 {
+  width: calc(400px - 30px);
+  height: 400px;
+}
+
+.main2 {
+  width: calc(713px - 30px);
+  height: 400px;
+}
+
+.main3 {
+  width: calc(1143px - 30px);
+  height: 400px;
+}
+
+.one_number {
+  width: calc(220px - 30px);
+  height: 134px;
+  background-color: #0F372C;
+  color: white;
+}
+
+.chart-title-small {
+  text-align: center;
+  margin-left: -30px;
+  margin-top: 12px;
+  font-family: "Ubuntu",
+  sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+}
+
+.marks4 {
+  width: calc(1337px - 30px);
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+}
+
+.marks4_1 {
+  background-color: #C6DCD8;
+  width: 456px;
+  margin-left: -30px;
+  border-radius: 30px 0px 0px 30px;
+  padding-left: 30px;
+}
+
+.marks4_2 {
+  padding-left: 30px;
+  padding-top: 23px;
+}
+
+.marks5 {
+  width: calc(1337px - 30px);
+  height: 481px;
+}
+
+.marks5_filter_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.marks5_filter {
+  display: flex;
+  flex-direction: row;
+  margin-right: 30px;
+  font-size: 30px;
+  align-items: center;
+}
+
+.marks5_filter_title {
+  margin-right: 4px;
+}
+
+.marks5_filter_selector {
+  width: 70px;
+  height: 50px;
+  background-color: #C6DCD8;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.marks5_filter_value {
+  width: 41px;
+  text-align: center;
+  
+}
+
+
+.marks6 {
+  width: calc(667px - 30px);
+  height: 481px;
+}
+
+.attendance5 {
+  width: calc(1100px - 30px);
+  height: 400px;
+}
+
+.debts2 {
+  width: calc(1150px - 30px);
+  height: 400px;
+}
