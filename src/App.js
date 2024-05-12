@@ -5,6 +5,7 @@ import MainDashboard from "./routes/mainDashboard";
 import Marks from "./routes/marks";
 import Attendance from "./routes/attendance";
 import Debts from "./routes/debts";
+import Error404 from "./routes/error404";
 
 
 
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    //errorElement: <ErrorPage />,
+    errorElement: <Error404 />,
     children: [
       {
         path: "/mainDashboard",

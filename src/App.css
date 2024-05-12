@@ -48,12 +48,27 @@
   font-size: 22px;
   margin-top: 40px;
   margin-left: 29px;
-  color: #9BC1B8;
 }
 
 .menu-button {
   display: flex;
   margin-bottom: 37px;
+  text-decoration: none;
+  color: #9BC1B8;
+}
+
+.menu-button:hover {
+  display: flex;
+  margin-bottom: 37px;
+  text-decoration: none;
+  color: white;
+}
+
+.menu-button-active {
+  display: flex;
+  margin-bottom: 37px;
+  text-decoration: none;
+  color: white;
 }
 
 .menu-icon{

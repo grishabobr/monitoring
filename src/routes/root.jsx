@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 import '../App.css';
 
 import { ReactComponent as MainSvg} from '../assets/menu-icons/main.svg'
@@ -17,33 +17,33 @@ export default function Root() {
                 </div>
 
                 <div className="menu-buttons" >
-                    <div className="menu-button" >
+                    <NavLink to={'mainDashboard'} className={({ isActive }) => isActive ? "menu-button-active" : "menu-button"} >
                         <div className="menu-icon" >
-                            <MainSvg fill='white'/>
+                            <MainSvg />
                         </div>
                         <div className="menu-text" >
                             Общий дашборд
                         </div>
-                    </div>
-                    <div className="menu-button" >
+                    </NavLink>
+                    <NavLink to={'marks'} className={({ isActive }) => isActive ? "menu-button-active" : "menu-button"} >
                         <div className="menu-icon" >
-                            <MarksSvg fill='white' />
+                            <MarksSvg />
                         </div>
                         <div className="menu-text" >
                             Успеваемость
                         </div>
-                    </div>
-                    <div className="menu-button" >
+                    </NavLink>
+                    <NavLink to={'attendance'} className={({ isActive }) => isActive ? "menu-button-active" : "menu-button"} >
                         <div className="menu-icon" >
-                            <AttendanceSvg stroke='white' />
+                            <AttendanceSvg />
                         </div>
                         <div className="menu-text" >
                             Посещаемость
                         </div>
-                    </div>
-                    <div className="menu-button" >
+                    </NavLink>
+                    <NavLink to={'debts'} className={({ isActive }) => isActive ? "menu-button-active" : "menu-button"} >
                         <div className="menu-icon" >
-                            <DebtSvg fill='white'/>
+                            <DebtSvg />
                             <div className="debt-counter" >
                                 1
                             </div>
@@ -51,7 +51,7 @@ export default function Root() {
                         <div className="menu-text" >
                             Академ. задолженности
                         </div>
-                    </div>
+                    </NavLink>
                 </div>
             </div>
             <div className="outlet">
