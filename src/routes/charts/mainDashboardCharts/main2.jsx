@@ -19,7 +19,6 @@ function DayColumn(props) {
                 break;
         }
     });
-    //console.log(colors);
 
     return (
         <div className='calendar-col'>
@@ -39,6 +38,7 @@ function DayColumn(props) {
 
 export default function Main2() {
     const defaultState = {
+        percent: 78,
         days: [
             {
                 name: "Пн",
@@ -154,6 +154,9 @@ export default function Main2() {
 
     const [days, setDays] = useState(defaultState.days);
 
+    const [progressStyle, setProgressStyle] = useState({ background: 'conic-gradient(#00000000 0% ' + defaultState.percent +'%, #F1F7F6 ' + defaultState.percent +'% 100%)' });
+    const [progress, setProgress] = useState(defaultState.percent);
+
 
     return (
         <div className='chart main2'>
@@ -165,7 +168,11 @@ export default function Main2() {
                     {days.map((day) => <DayColumn day = {day}/>)}
                 </div>
                 <div className='pie-percent'>
-                    73%
+                    <div className='pie-progress' style={progressStyle}>
+                        <div className='pie-number'>
+                            {progress+'%'}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
