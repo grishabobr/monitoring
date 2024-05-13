@@ -1,39 +1,22 @@
 import '../App.css';
+import Main1 from './charts/mainDashboardCharts/main1';
+import Main2 from './charts/mainDashboardCharts/main2';
+import Main3 from './charts/mainDashboardCharts/main3';
 
 
 export default function MainDashboard() {
+
     return (
         <div className='dashboard'>
             <div className='dashboard-title'>
                 Общий дашборд
             </div>
             <div className='charts-line'>
-                <div className='chart main1'>
-                    <div className='chart-title'>
-                        Рейтинг
-                    </div>
-                    <div className='chart-content'>
-                        content
-                    </div>
-                </div>
-                <div className='chart main2'>
-                    <div className='chart-title'>
-                        Посещаемость за неделю
-                    </div>
-                    <div className='chart-content'>
-                        content
-                    </div>
-                </div>
+                <Main1 />
+                <Main2 />
             </div>
             <div className='charts-line'>
-                <div className='chart main3'>
-                    <div className='chart-title'>
-                        Последние оценки
-                    </div>
-                    <div className='chart-content'>
-                        content
-                    </div>
-                </div>
+                <Main3 />
             </div>
         </div>
     );
