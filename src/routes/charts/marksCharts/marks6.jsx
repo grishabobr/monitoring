@@ -20,20 +20,20 @@ export default function Marks6() {
 
     return (
         <div className='chart marks6'>
-            <div className='chart-title marks5_filter_container'>
+            <div className='chart-title marks6_filter_container'>
                 Зачетная книжка
-                <div className='marks5_filter'>
-                    <div className='marks5_filter_title'>
+                <div className='marks6_filter'>
+                    <div className='marks6_filter_title'>
                         Семестр:
                     </div>
-                    <div className='marks5_filter_selector'>
-                        <div className='marks5_filter_controls' onClick={() => { setSemestValue(semestValue - 1) }}>
+                    <div className='marks6_filter_selector'>
+                        <div className='marks6_filter_controls' onClick={() => { setSemestValue(semestValue - 1) }}>
                             -
                         </div>
-                        <div className='marks5_filter_value'>
+                        <div className='marks6_filter_value'>
                             {semestValue}
                         </div>
-                        <div className='marks5_filter_controls' onClick={() => { setSemestValue(semestValue + 1) }}>
+                        <div className='marks6_filter_controls' onClick={() => { setSemestValue(semestValue + 1) }}>
                             +
                         </div>
                     </div>

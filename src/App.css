@@ -244,17 +244,86 @@ body {
 
 .marks5 {
   width: calc(1337px - 30px);
-  height: 481px;
+  height: 511px;
 }
 
-.marks5_filter_container {
+.marks5-scroll {
+  overflow-y: scroll;
+  height: 401px;
+  margin-top: 23px;
+  padding-right: 10px;
+}
+
+.marks5-scroll-horiz::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.marks5-scroll-horiz::-webkit-scrollbar-track:hover {
+  background-color: #ffffff;
+}
+
+.marks5-scroll-horiz::-webkit-scrollbar-track:active {
+  background-color: #ffffff;
+}
+
+.marks5-table {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  font-size: 21px;
+  color:#222222;
+}
+
+.marks5-table-line {
+  background-color: #F0F7F6;
+  display: flex;
+  flex-direction: row;
+  height: 119px;
+  border-radius: 10px;
+  align-items: center;
+}
+
+.line-course {
+  margin-left: 10px;
+  width: 269px;
+}
+
+.line-works {
+  display: flex;
+  align-items: center;
+  gap: 29px;
+  margin-left: 9px;
+}
+
+.line-work {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 110px;
+  gap: 3px;
+}
+
+.marks5-scroll-horiz {
+  overflow-x: scroll;
+  width: 944px;
+  padding-bottom: 10px;
+}
+
+.main5_plug {
+  margin-right: 0px !important;
+  margin-bottom: 0px !important;
+
+}
+
+.marks6_filter_container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.marks5_filter {
+.marks6_filter {
   display: flex;
   flex-direction: row;
   margin-right: 30px;
@@ -262,11 +331,11 @@ body {
   align-items: center;
 }
 
-.marks5_filter_title {
+.marks6_filter_title {
   margin-right: 4px;
 }
 
-.marks5_filter_selector {
+.marks6_filter_selector {
   width: 70px;
   height: 50px;
   background-color: #C6DCD8;
@@ -276,12 +345,12 @@ body {
   justify-content: center;
 }
 
-.marks5_filter_value {
+.marks6_filter_value {
   width: 30px;
   text-align: center;
 }
 
-.marks5_filter_controls {
+.marks6_filter_controls {
   cursor: pointer;
   user-select: none;
 }
