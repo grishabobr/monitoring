@@ -1,4 +1,5 @@
 import { Outlet, NavLink } from "react-router-dom";
+import { useState, useEffect } from 'react';
 import '../App.css';
 
 import { ReactComponent as MainSvg} from '../assets/menu-icons/main.svg'
@@ -9,6 +10,12 @@ import { ReactComponent as DebtSvg } from '../assets/menu-icons/debt.svg'
 
 
 export default function Root() {
+    const defaultState = {
+        debts: 1
+    }
+
+    const [debts, setDebts] = useState(Number.parseFloat(defaultState.debts).toFixed(0));
+
     return (
         <div className="root">
             <div className="menu-background" >
@@ -45,7 +52,7 @@ export default function Root() {
                         <div className="menu-icon" >
                             <DebtSvg />
                             <div className="debt-counter" >
-                                1
+                                {debts}
                             </div>
                         </div>
                         <div className="menu-text" >

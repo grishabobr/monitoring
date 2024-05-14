@@ -1,4 +1,6 @@
 import '../App.css';
+import Debts1 from './charts/debtsCharts/debts1';
+import Debts2 from './charts/debtsCharts/debts2';
 
 
 export default function Debts() {
@@ -8,25 +10,11 @@ export default function Debts() {
                 Академические задолженности
             </div>
             <div className='charts-line'>
-                <div className='chart debts1 one_number'>
-                    <div className='chart-title-small'>
-                        Задолженности
-                    </div>
-                    <div className='chart-content'>
-                        content
-                    </div>
-                </div>
+                <Debts1 />
             </div>
 
             <div className='charts-line'>
-                <div className='chart debts2'>
-                    <div className='chart-title'>
-                        Список задолженностей
-                    </div>
-                    <div className='chart-content'>
-                        content
-                    </div>
-                </div>
+                <Debts2 />
             </div>
 
         </div>
