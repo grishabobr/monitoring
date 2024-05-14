@@ -12,23 +12,26 @@ function getColor(value, p1, p2) {
 }
 
 
-export default function Marks3() {
+export default function Attendance1() {
     const defaultState = {
-        daysToExams: 8
+        yearAttendance: 80
     }
 
-    const [daysToExams, setDaysToExams] = useState(Number.parseFloat(defaultState.daysToExams).toFixed(0));
+    const [yearAttendance, setYearAttendance] = useState(Number.parseFloat(defaultState.yearAttendance).toFixed(0));
 
-    const [color, setColor] = useState(getColor(defaultState.daysToExams, 20, 45));
+    const [color, setColor] = useState(getColor(defaultState.yearAttendance, 50, 70));
+
+
 
     return (
-        <div className='chart marks1 one_number' style={{ background: color }}>
+        <div className='chart attendance1 one_number' style={{ background: color }}>
             <div className='chart-title-small'>
-                Дней до сессии
+                За год
             </div>
-            <div className='chart-content one_number_content'>
-                <span>{daysToExams}</span>
+                <div className='chart-content one_number_content'>
+                <span>{yearAttendance}<span className='one_number_content_small'>%</span></span>
             </div>
         </div>
+        
     );
 }

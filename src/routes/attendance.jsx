@@ -1,4 +1,9 @@
 import '../App.css';
+import Attendance1 from './charts/attendanceCharts/attendance1';
+import Attendance2 from './charts/attendanceCharts/attendance2';
+import Attendance3 from './charts/attendanceCharts/attendance3';
+import Attendance4 from './charts/attendanceCharts/attendance4';
+import Attendance5 from './charts/attendanceCharts/attendance5';
 
 
 export default function Attendance() {
@@ -8,49 +13,14 @@ export default function Attendance() {
                 Посещаемость
             </div>
             <div className='charts-line'>
-                <div className='chart attendance1 one_number'>
-                    <div className='chart-title-small'>
-                        За год
-                    </div>
-                    <div className='chart-content'>
-                        content
-                    </div>
-                </div>
-                <div className='chart attendance2 one_number'>
-                    <div className='chart-title-small'>
-                        За месяц
-                    </div>
-                    <div className='chart-content'>
-                        content
-                    </div>
-                </div>
-                <div className='chart attendance3 one_number'>
-                    <div className='chart-title-small'>
-                        За неделю
-                    </div>
-                    <div className='chart-content'>
-                        content
-                    </div>
-                </div>
-                <div className='chart attendance4 one_number'>
-                    <div className='chart-title-small'>
-                        Выговоры
-                    </div>
-                    <div className='chart-content'>
-                        content
-                    </div>
-                </div>
+                <Attendance1 />
+                <Attendance2 />
+                <Attendance3 />
+                <Attendance4 />
             </div>
             
             <div className='charts-line'>
-                <div className='chart attendance5'>
-                    <div className='chart-title'>
-                        Посещаемость занятий
-                    </div>
-                    <div className='chart-content'>
-                        content
-                    </div>
-                </div>
+                <Attendance5 />
             </div>
             
         </div>

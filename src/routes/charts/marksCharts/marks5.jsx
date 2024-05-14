@@ -129,6 +129,35 @@ export default function Marks5() {
                 ]
             },
             {
+                course: "Иностранный язык",
+                marks: [
+                    {
+                        date: "01.01.2024",
+                        work: "Тест 1",
+                        mark: 8,
+                        max_mark: 10
+                    },
+                    {
+                        date: "02.01.2024",
+                        work: "Тест 2",
+                        mark: 10,
+                        max_mark: 10
+                    },
+                    {
+                        date: "03.01.2024",
+                        work: "Тест 3",
+                        mark: 9,
+                        max_mark: 10
+                    },
+                    {
+                        date: "04.01.2024",
+                        work: "Тест 4",
+                        mark: 10,
+                        max_mark: 10
+                    }
+                ]
+            },
+            {
                 course: "Физика",
                 marks: [
                     {

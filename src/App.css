@@ -286,7 +286,7 @@ body {
 
 .line-course {
   margin-left: 10px;
-  width: 269px;
+  width: 294px;
 }
 
 .line-works {
@@ -359,10 +359,84 @@ body {
   width: calc(667px - 30px);
   height: 481px;
 }
+.marks6_plug{
+  width: 98px !important;
+  margin-right: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.mark-line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.marks6_plug_line {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  margin-top: 21px;
+}
+
+.mark-line-name {
+  margin-left: 19px;
+  font-size: 24px;
+  color: #222222;
+}
 
 .attendance5 {
   width: calc(1100px - 30px);
   height: 400px;
+}
+
+.attendance5_col1 {
+  width: 334px !important;
+  margin-right: 47px !important;
+}
+
+.attendance5_col2 {
+  width: 111px !important;
+  margin-right: 33px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.attendance5_col3 {
+  width: 111px !important;
+  margin-right: 30px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.attendance5_col4 {
+  width: 111px !important;
+  margin-right: 55px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.attendance5_col5 {
+  width: 82px !important;
+  margin-right: 110px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.attendance5-margin {
+  margin-top: 10px;
+}
+
+.attendance5-scroll {
+  height: 260px;
+  overflow-y: scroll;
 }
 
 .debts2 {
