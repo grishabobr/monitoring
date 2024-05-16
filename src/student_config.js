@@ -1,0 +1,1 @@
+export const student_info = {student_id: 2}

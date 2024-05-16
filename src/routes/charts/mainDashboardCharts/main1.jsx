@@ -1,5 +1,6 @@
 import '../../../App.css';
 import { useState, useEffect } from 'react';
+import { student_info } from '../../../student_config';
 
 
 function componentToHex(c) {
@@ -46,6 +47,31 @@ export default function Main1() {
 
     const [rating, setRating] = useState(defaultState.rating);
     const [frameColor, setFrameColor] = useState(pickHex(hexToRgb('#ED5B5B'), hexToRgb('#F4D25C'), hexToRgb('#4D9559'), rating/100));
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(student_info)
+    };
+
+    useEffect(() => {
+        fetch('http://localhost:3333/main1', requestOptions)
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                setRating(data.rating);
+                
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    }, []);
+
+    useEffect(() => {
+        setFrameColor(pickHex(hexToRgb('#ED5B5B'), hexToRgb('#F4D25C'), hexToRgb('#4D9559'), rating / 100));
+    }, [rating]);
+
+
 
     return (
         <div className='chart main1'>
