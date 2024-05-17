@@ -45,7 +45,6 @@ export default function Marks2() {
 
     useEffect(() => {
         setColor(getColor(worksCompleted, 50, 70));
-        console.log(worksCompleted)
     }, [worksCompleted]);
 
 

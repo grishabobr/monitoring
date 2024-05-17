@@ -135,7 +135,6 @@ export default function Attendance5() {
             .then((res) => res.json())
             .then((data) => {
                 setAttendance(data.attendance);
-                console.log(data.attendance)
 
             })
             .catch((err) => {

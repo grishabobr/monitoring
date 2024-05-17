@@ -1,10 +1,17 @@
 import '../../../App.css';
 import { useState, useEffect } from 'react';
 import { ReactComponent as LinkSvg } from '../../../assets/menu-icons/link.svg'
+import { student_info } from '../../../student_config';
 
 
 
 function Debt(props) {
+
+    let [link, setLink] = useState('props.debt.requirements');
+
+    useEffect(() => {
+        setLink(props.debt.requirements);
+    }, [props.debt]);
 
     return (
         <tr className='main3_line'>
@@ -37,6 +44,24 @@ export default function Debts2() {
     }
 
     const [debts, setDebts] = useState(defaultState.debts);
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(student_info)
+    };
+
+    useEffect(() => {
+        fetch('http://localhost:3333/debts2', requestOptions)
+            .then((res) => res.json())
+            .then((data) => {
+                setDebts(data.debts);
+
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    }, []);
 
 
     return (

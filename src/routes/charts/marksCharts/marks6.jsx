@@ -94,7 +94,6 @@ export default function Marks6() {
             .then((res) => res.json())
             .then((data) => {
                 setExams(data.marks);
-                console.log(data.marks)
 
             })
             .catch((err) => {

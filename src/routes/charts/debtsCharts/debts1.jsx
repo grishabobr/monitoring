@@ -1,5 +1,6 @@
 import '../../../App.css';
 import { useState, useEffect } from 'react';
+import { student_info } from '../../../student_config';
 
 function getColor(value, p1, p2) {
     if (value < p1) {
@@ -20,6 +21,29 @@ export default function Debts1() {
     const [debts, setDebts] = useState(Number.parseFloat(defaultState.debts).toFixed(0));
 
     const [color, setColor] = useState(getColor(defaultState.debts, 1, 2));
+
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(student_info)
+    };
+
+    useEffect(() => {
+        fetch('http://localhost:3333/debts1', requestOptions)
+            .then((res) => res.json())
+            .then((data) => {
+                setDebts(Number.parseFloat(data.debts).toFixed(0));
+
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    }, []);
+
+    useEffect(() => {
+        setColor(getColor(debts, 1, 2));
+    }, [debts]);
 
     return (
         <div className='chart debts1 one_number' style={{ background: color }}>

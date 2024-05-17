@@ -108,7 +108,6 @@ export default function Main3() {
         fetch('http://localhost:3333/main3', requestOptions)
             .then((res) => res.json())
             .then((data) => {
-                console.log(data.marks)
                 setMarks(data.marks);
             })
             .catch((err) => {
