@@ -1,5 +1,6 @@
 import '../../../App.css';
 import { useState, useEffect } from 'react';
+import { student_info } from '../../../student_config';
 
 function Exam(props) {
 
@@ -81,6 +82,25 @@ export default function Marks6() {
 
     const [exams, setExams] = useState(defaultState.marks);
     const [semestValue, setSemestValue] = useState(1);
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(student_info)
+    };
+
+    useEffect(() => {
+        fetch('http://localhost:3333/marks6', requestOptions)
+            .then((res) => res.json())
+            .then((data) => {
+                setExams(data.marks);
+                console.log(data.marks)
+
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    }, []);
 
     useEffect(() => {
         if (semestValue <= 0) {

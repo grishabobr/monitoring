@@ -416,7 +416,6 @@ export default function Marks4() {
             .then((res) => res.json())
             .then((data) => {
                 setDays(data.days);
-                console.log(data.days)
 
             })
             .catch((err) => {

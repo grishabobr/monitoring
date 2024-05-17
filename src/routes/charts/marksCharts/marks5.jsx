@@ -1,5 +1,6 @@
 import '../../../App.css';
 import { useState, useEffect } from 'react';
+import { student_info } from '../../../student_config';
 
 function componentToHex(c) {
     var hex = c.toString(16);
@@ -194,7 +195,27 @@ export default function Marks5() {
         ]
     }
 
+
+
     const [courses, setCourses] = useState(defaultState.courses);
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(student_info)
+    };
+
+    useEffect(() => {
+        fetch('http://localhost:3333/marks5', requestOptions)
+            .then((res) => res.json())
+            .then((data) => {
+                setCourses(data.courses);
+
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    }, []);
 
     return (
         <div className='chart marks5'>
