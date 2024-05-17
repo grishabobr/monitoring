@@ -1,5 +1,6 @@
 import '../../../App.css';
 import { useState, useEffect } from 'react';
+import { student_info } from '../../../student_config';
 
 function getColor(value, p1, p2) {
     if (value < p1) {
@@ -20,6 +21,28 @@ export default function Attendance4() {
     const [penalties, setPenalties] = useState(Number.parseFloat(defaultState.penalties).toFixed(0));
 
     const [color, setColor] = useState(getColor(defaultState.penalties, 1, 2));
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(student_info)
+    };
+
+    useEffect(() => {
+        fetch('http://localhost:3333/attendance4', requestOptions)
+            .then((res) => res.json())
+            .then((data) => {
+                setPenalties(Number.parseFloat(data.penalties).toFixed(0));
+
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    }, []);
+
+    useEffect(() => {
+        setColor(getColor(penalties, 1, 2));
+    }, [penalties]);
 
     return (
         <div className='chart attendance4 one_number' style={{ background: color }}>

@@ -1,5 +1,6 @@
 import '../../../App.css';
 import { useState, useEffect } from 'react';
+import { student_info } from '../../../student_config';
 
 function getColor(value, p1, p2) {
     if (value < p1) {
@@ -21,7 +22,27 @@ export default function Attendance2() {
 
     const [color, setColor] = useState(getColor(defaultState.monthAttendance, 50, 70));
 
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(student_info)
+    };
 
+    useEffect(() => {
+        fetch('http://localhost:3333/attendance2', requestOptions)
+            .then((res) => res.json())
+            .then((data) => {
+                setMonthAttendance(Number.parseFloat(data.monthAttendance).toFixed(0));
+
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    }, []);
+
+    useEffect(() => {
+        setColor(getColor(monthAttendance, 50, 70));
+    }, [monthAttendance]);
 
     return (
         <div className='chart attendance2 one_number' style={{ background: color }}>

@@ -1,5 +1,6 @@
 import '../../../App.css';
 import { useState, useEffect } from 'react';
+import { student_info } from '../../../student_config';
 
 function componentToHex(c) {
     var hex = c.toString(16);
@@ -122,6 +123,25 @@ export default function Attendance5() {
     }
 
     const [attendance, setAttendance] = useState(defaultState.attendance);
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(student_info)
+    };
+
+    useEffect(() => {
+        fetch('http://localhost:3333/attendance5', requestOptions)
+            .then((res) => res.json())
+            .then((data) => {
+                setAttendance(data.attendance);
+                console.log(data.attendance)
+
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    }, []);
 
 
     return (

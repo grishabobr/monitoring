@@ -1,5 +1,6 @@
 import '../../../App.css';
 import { useState, useEffect } from 'react';
+import { student_info } from '../../../student_config';
 
 function getColor(value, p1, p2) {
     if (value < p1) {
@@ -14,22 +15,42 @@ function getColor(value, p1, p2) {
 
 export default function Attendance1() {
     const defaultState = {
-        yearAttendance: 80
+        semAttendance: 80
     }
 
-    const [yearAttendance, setYearAttendance] = useState(Number.parseFloat(defaultState.yearAttendance).toFixed(0));
+    const [semAttendance, setSemAttendance] = useState(Number.parseFloat(defaultState.semAttendance).toFixed(0));
 
-    const [color, setColor] = useState(getColor(defaultState.yearAttendance, 50, 70));
+    const [color, setColor] = useState(getColor(defaultState.semAttendance, 50, 70));
 
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(student_info)
+    };
 
+    useEffect(() => {
+        fetch('http://localhost:3333/attendance1', requestOptions)
+            .then((res) => res.json())
+            .then((data) => {
+                setSemAttendance(Number.parseFloat(data.semAttendance).toFixed(0));
+
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    }, []);
+
+    useEffect(() => {
+        setColor(getColor(semAttendance, 50, 70));
+    }, [semAttendance]);
 
     return (
         <div className='chart attendance1 one_number' style={{ background: color }}>
             <div className='chart-title-small'>
-                За год
+                За семестр
             </div>
                 <div className='chart-content one_number_content'>
-                <span>{yearAttendance}<span className='one_number_content_small'>%</span></span>
+                <span>{semAttendance}<span className='one_number_content_small'>%</span></span>
             </div>
         </div>
         
