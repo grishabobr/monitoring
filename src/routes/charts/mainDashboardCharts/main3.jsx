@@ -1,5 +1,6 @@
 import '../../../App.css';
 import { useState, useEffect } from 'react';
+import { student_info } from '../../../student_config';
 
 function componentToHex(c) {
     var hex = c.toString(16);
@@ -96,6 +97,24 @@ export default function Main3() {
     }
 
     const [marks, setMarks] = useState(defaultState.marks);
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(student_info)
+    };
+
+    useEffect(() => {
+        fetch('http://localhost:3333/main3', requestOptions)
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data.marks)
+                setMarks(data.marks);
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    }, []);
 
     return (
         <div className='chart main3'>

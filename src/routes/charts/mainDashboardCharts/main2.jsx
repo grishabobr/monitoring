@@ -1,5 +1,6 @@
 import '../../../App.css';
 import { useState, useEffect } from 'react';
+import { student_info } from '../../../student_config';
 
 function DayColumn(props) {
     let dayStatuses = [0, 0, 0, 0, 0]
@@ -157,6 +158,24 @@ export default function Main2() {
     const [progressStyle, setProgressStyle] = useState({ background: 'conic-gradient(#00000000 0% ' + defaultState.percent +'%, #F1F7F6 ' + defaultState.percent +'% 100%)' });
     const [progress, setProgress] = useState(defaultState.percent);
 
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(student_info)
+    };
+
+    useEffect(() => {
+        fetch('http://localhost:3333/main2', requestOptions)
+            .then((res) => res.json())
+            .then((data) => {
+                setDays(data.days);
+                setProgressStyle({ background: 'conic-gradient(#00000000 0% ' + data.percent + '%, #F1F7F6 ' + data.percent + '% 100%)' });
+                setProgress(data.percent);
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    }, []);
 
     return (
         <div className='chart main2'>

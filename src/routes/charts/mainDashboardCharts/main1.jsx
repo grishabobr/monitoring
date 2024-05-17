@@ -58,7 +58,6 @@ export default function Main1() {
         fetch('http://localhost:3333/main1', requestOptions)
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
                 setRating(data.rating);
                 
             })
