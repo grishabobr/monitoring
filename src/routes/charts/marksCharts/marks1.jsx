@@ -1,5 +1,6 @@
 import '../../../App.css';
 import { useState, useEffect } from 'react';
+import { student_info } from '../../../student_config';
 
 function getColor(value, p1, p2) {
     if (value < p1){
@@ -23,7 +24,27 @@ export default function Marks1() {
 
     const [color, setColor] = useState(getColor(defaultState.avgMark, 3.3, 4));
 
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(student_info)
+    };
+
+    useEffect(() => {
+        fetch('http://localhost:3333/marks1', requestOptions)
+            .then((res) => res.json())
+            .then((data) => {
+                setavgMark(Number.parseFloat(data.avgMark).toFixed(2));
+
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    }, []);
     
+    useEffect(() => {
+        setColor(getColor(avgMark, 3.3, 4));
+    }, [avgMark]);
 
     return (
         <div className='chart marks1 one_number' style={{background: color}}>

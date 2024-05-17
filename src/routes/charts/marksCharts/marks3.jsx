@@ -1,5 +1,6 @@
 import '../../../App.css';
 import { useState, useEffect } from 'react';
+import { student_info } from '../../../student_config';
 
 function getColor(value, p1, p2) {
     if (value < p1) {
@@ -20,6 +21,28 @@ export default function Marks3() {
     const [daysToExams, setDaysToExams] = useState(Number.parseFloat(defaultState.daysToExams).toFixed(0));
 
     const [color, setColor] = useState(getColor(defaultState.daysToExams, 20, 45));
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(student_info)
+    };
+
+    useEffect(() => {
+        fetch('http://localhost:3333/marks3', requestOptions)
+            .then((res) => res.json())
+            .then((data) => {
+                setDaysToExams(data.daysToExams);
+
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    }, []);
+
+    useEffect(() => {
+        setColor(getColor(daysToExams, 20, 45));
+    }, [daysToExams]);
 
     return (
         <div className='chart marks1 one_number' style={{ background: color }}>

@@ -1,5 +1,6 @@
 import '../../../App.css';
 import { useState, useEffect } from 'react';
+import { student_info } from '../../../student_config';
 
 function getColor(value, p1, p2) {
     if (value < p1) {
@@ -23,6 +24,29 @@ export default function Marks2() {
 
     const [color, setColor] = useState(getColor(defaultState.worksCompleted, 50, 70));
 
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(student_info)
+    };
+
+    useEffect(() => {
+        fetch('http://localhost:3333/marks2', requestOptions)
+            .then((res) => res.json())
+            .then((data) => {
+                setWorksCompleted(Number.parseFloat(data.worksCompleted).toFixed(0));
+
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    }, []);
+
+    useEffect(() => {
+        setColor(getColor(worksCompleted, 50, 70));
+        console.log(worksCompleted)
+    }, [worksCompleted]);
 
 
     return (

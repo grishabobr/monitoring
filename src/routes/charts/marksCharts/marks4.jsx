@@ -1,10 +1,11 @@
 import '../../../App.css';
 import { useState, useEffect } from 'react';
+import { student_info } from '../../../student_config';
 
 
 function Day(props) {
     let color = '#F1F7F6'
-    let outlineColor = '0 px'
+    let [outlineColor, setOutlineColor] = useState('0 px');
     if (props.day.deadline){
         if (props.day.passed) {
             color = '#709977'
@@ -17,9 +18,14 @@ function Day(props) {
         }
     }
 
-    if (props.day.today) {
-        outlineColor = '5px solid #B10E0E'
-    }
+    useEffect(() => {
+        if (props.day.today) {
+            setOutlineColor('5px solid #B10E0E')
+        }
+        else {
+            setOutlineColor('0px')
+        }
+    }, [props.day.today]);
 
     return (
         <div className='calendar-class day' style={{backgroundColor: color, outline: outlineColor}}></div>
@@ -398,6 +404,25 @@ export default function Marks4() {
     }
 
     const [days, setDays] = useState(defaultState.days);
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(student_info)
+    };
+
+    useEffect(() => {
+        fetch('http://localhost:3333/marks4', requestOptions)
+            .then((res) => res.json())
+            .then((data) => {
+                setDays(data.days);
+                console.log(data.days)
+
+            })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    }, []);
 
     return (
         <div className='chart marks4'>
